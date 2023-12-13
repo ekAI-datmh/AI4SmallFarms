@@ -26,17 +26,34 @@ To cite the paper/benchmark dataset, please use this bib file:
 ```
 
 ## Pipeline requirements
-Before running the pipeline, you need to install external Python packages with conda. Run the following commands in the project directory: 
+Before running the pipeline, you need to install external Python packages within a conda environment. Run the following commands in the project directory: 
 
 ```
 conda env create -f environment.yml
+conda activate ai4small
+```
+
+## Pipeline steps
+Before running the pipeline, you need to configure some variables in the base.py file. These are the most important:
+
+```
+INPUT_DIR: Input directory of data
+AREA: Area to analyse, Asia or NL
+SOURCE: Source data, S2 or Google
+IMAGE_SIZE: The image size of the patches that you want to create and use as model input
+NUM_CHANNELS: 3
+MODEL = SelectedModel.SATELLITE_UNET
+FROM_SCRATCH = True
+BATCH_SIZE = 1
+LEARNING_RATE = 1e-4
+EPOCHS = 1000
+PATIENCE = 10
+BIN_THRESHOLD = .5
 
 ```
 
-
-## Pipeline steps
-* Split dataset: splits the data in train, validate and test set. 
-* Create patches
+* Split dataset: splits the data in the train, validate and test set. These splits are predetermined in input/tilesAsia.gpkg. The dataset in DANS is already split into these three parts.
+* Create patches: Because the original image tiles are too big and do not have a standard size, we need to create smaller image patches. In this step 
 * Create model
 * Train model
 * Evaluate model
