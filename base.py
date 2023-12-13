@@ -16,7 +16,6 @@ class Source(StrEnum):
 class SelectedModel(StrEnum):
     SATELLITE_UNET = 'satellite_unet'
     CUSTOM_UNET = 'custom_unet'
-    SWIN = 'swin'
 
 
 class Base:
