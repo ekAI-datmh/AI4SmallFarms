@@ -69,13 +69,13 @@ When running the pipeline, the user should use comments to run the right steps. 
 4. Train model: This step runs the training process. This step could be repeated with different hyperparameter configurations. 
 5. Evaluate model: After training with multiple configurations (hyperparameters), this step could be used to evaluate the models and select the best one.
 6. Make predictions: Predictions can be made with the following steps:
-  * create_predictions(): Create predictions for the test patches
-  * mosaic_predictions(): Mosaic all patches to reconstruct the original image tiles
-  * create watershed with ImageJ (not in the script): perform a watershed transform segmentation in ImageJ. follow the instructions here: https://imagej.net/plugins/morphological-segmentation
-  * georeference_watershed(): The output of ImageJ is not georeferenced, so we need to add the correct coordinates from the original image tiles
-  * evaluate_watershed(): Evaluate the accuracy of the watershed output
-  * Polyginize the output of the watershed in ArcGIS Pro (not in the script). In this polygonization step, the closed contours are converted to vector format (Raster to Polyline: https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/raster-to-polyline.htm), simplified with the Douglas-Peucker
-algorithm (Simplify Line: https://pro.arcgis.com/en/pro-app/latest/tool-reference/cartography/simplify-line.htm) and finally, converted to polygons (Feature to Polygons: https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/feature-to-polygon.htm)
-  * calculate_polis(): Calculate the polis metric
-  * evaluate_polis(): Evaluate the polis metric
+    * create_predictions(): Create predictions for the test patches
+    * mosaic_predictions(): Mosaic all patches to reconstruct the original image tiles
+    * create watershed with ImageJ (not in the script): perform a watershed transform segmentation in ImageJ. follow the instructions here: https://imagej.net/plugins/morphological-segmentation
+    * georeference_watershed(): The output of ImageJ is not georeferenced, so we need to add the correct coordinates from the original image tiles
+    * evaluate_watershed(): Evaluate the accuracy of the watershed output
+    * Polyginize the output of the watershed in ArcGIS Pro (not in the script). In this polygonization step, the closed contours are converted to vector format (Raster to Polyline: https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/raster-to-polyline.htm), simplified with the Douglas-Peucker
+  algorithm (Simplify Line: https://pro.arcgis.com/en/pro-app/latest/tool-reference/cartography/simplify-line.htm) and finally, converted to polygons (Feature to Polygons: https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/feature-to-polygon.htm)
+    * calculate_polis(): Calculate the polis metric
+    * evaluate_polis(): Evaluate the polis metric
 
