@@ -33,7 +33,7 @@ conda env create -f environment.yml
 conda activate ai4small
 ```
 
-## Pipeline steps
+## Pipeline configuration
 Before running the pipeline, you need to configure some variables in the base.py file. These are the most important:
 
 ```
@@ -52,6 +52,7 @@ BIN_THRESHOLD: Threshold for binary classification after the last layer
 
 ```
 
+## Pipeline steps
 * Split dataset: splits the data in the train, validate and test set. These splits are predetermined in input/tilesAsia.gpkg. The dataset in DANS is already split into these three parts.
 * Create patches: Because the original image tiles are too big and do not have a standard size, we need to create smaller image patches. In this step 
 * Create model
