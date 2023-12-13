@@ -22,7 +22,6 @@ class SelectedModel(StrEnum):
 class Base:
     # config------------------------------------------------------------------------------------------------------------
     INPUT_DIR = r''
-    EXPERIMENT_NAME = 'ai4small'
     AREA = Area.ASIA
     SOURCE = Source.GOOGLE
     IMAGE_SIZE = 512
@@ -45,6 +44,7 @@ class Base:
     WRITE_PREDICTIONS = True
 
     # constants---------------------------------------------------------------------------------------------------------
+    EXPERIMENT_NAME = 'ai4small'
     SPLIT_1 = .7
     SPLIT_2 = .85
     
