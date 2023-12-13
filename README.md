@@ -65,15 +65,17 @@ When running the pipeline, the user should use comments to run the right steps. 
 
 1. Split dataset: splits the data in the train, validate and test set. These splits are predetermined in input/tilesAsia.gpkg. The dataset in DANS is already split into these three parts, so when using the AI4SmallFarms dataset, this step can be skipped.
 2. Create patches: Because the original image tiles are too big and do not have a standard size, we need to create smaller image patches. It creates patches for the train, validate and test directory. 
-3. Create model: Create the selected model. If the model already exists, this step could be skipped
+3. Create model: Create the selected model. If the model already exists, this step can be skipped
 4. Train model: This step runs the training process. This step could be repeated with different hyperparameter configurations. 
 5. Evaluate model: After training with multiple configurations (hyperparameters), this step could be used to evaluate the models and select the best one.
 6. Make predictions: Predictions can be made with the following steps:
-* create_predictions():
-* mosaic_predictions():
-* create watershed with ImageJ: 
-* georeference_watershed()
-* evaluate_watershed()
-* calculate_polis()
-* predict_obj.evaluate_polis()
+  * create_predictions(): Create predictions for the test patches
+  * mosaic_predictions(): Mosaic all patches to reconstruct the original image tiles
+  * create watershed with ImageJ (not in the script): perform a watershed transform segmentation in ImageJ. follow the instructions here: https://imagej.net/plugins/morphological-segmentation
+  * georeference_watershed(): The output of ImageJ is not georeferenced, so we need to add the correct coordinates from the original image tiles
+  * evaluate_watershed(): Evaluate the accuracy of the watershed output
+  * Polyginize the output of the watershed in ArcGIS Pro (not in the script). In this polygonization step, the closed contours are converted to vector format (Raster to Polyline: https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/raster-to-polyline.htm), simplified with the Douglas-Peucker
+algorithm (Simplify Line: https://pro.arcgis.com/en/pro-app/latest/tool-reference/cartography/simplify-line.htm) and finally, converted to polygons (Feature to Polygons: https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/feature-to-polygon.htm)
+  * calculate_polis(): Calculate the polis metric
+  * evaluate_polis(): Evaluate the polis metric
 
