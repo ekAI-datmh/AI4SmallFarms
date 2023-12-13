@@ -25,8 +25,17 @@ To cite the paper/benchmark dataset, please use this bib file:
 }
 ```
 
+## Pipeline requirements
+Before running the pipeline, you need to install external Python packages with conda. Run the following commands in the project directory: 
+
+```
+conda env create -f environment.yml
+
+```
+
+
 ## Pipeline steps
-* Split dataset
+* Split dataset: splits the data in train, validate and test set. 
 * Create patches
 * Create model
 * Train model
