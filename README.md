@@ -37,18 +37,18 @@ conda activate ai4small
 Before running the pipeline, you need to configure some variables in the base.py file. These are the most important:
 
 ```
-INPUT_DIR: Input directory of data
-AREA: Area to analyse, Asia or NL
-SOURCE: Source data, S2 or Google
-IMAGE_SIZE: The image size of the patches that you want to create and use as model input
-NUM_CHANNELS: 3
-MODEL = SelectedModel.SATELLITE_UNET
-FROM_SCRATCH = True
-BATCH_SIZE = 1
-LEARNING_RATE = 1e-4
-EPOCHS = 1000
-PATIENCE = 10
-BIN_THRESHOLD = .5
+INPUT_DIR: Input directory of your data
+AREA: Area to analyse, Asia/NL
+SOURCE: Source data, S2/Google
+IMAGE_SIZE: The image size of the patches that you want to create
+NUM_CHANNELS: The number of channels of your imagery, a14small uses 3 channels
+MODEL: The deep learning model you want to use, satellite_unet/custom_unet
+FROM_SCRATCH: When training from scratch, set this to True
+BATCH_SIZE: Batch size used in the experiment
+LEARNING_RATE: Learning rate used in the experiment
+EPOCHS: Maximum number of epochs. Because we use early stopping it is not very likely that we train for 1000 epochs
+PATIENCE: If, after this number, the validation accuracy does not improve, we stop training.
+BIN_THRESHOLD: Threshold for binary classification after the last layer
 
 ```
 
