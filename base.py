@@ -28,9 +28,6 @@ class Base:
     IMAGE_SIZE = 512
     NUM_CHANNELS = 3
 
-    SPLIT_1 = .7
-    SPLIT_2 = .85
-
     MODEL = SelectedModel.SATELLITE_UNET
     FROM_SCRATCH = True
     BATCH_SIZE = 1
@@ -48,6 +45,9 @@ class Base:
     WRITE_PREDICTIONS = True
 
     # constants---------------------------------------------------------------------------------------------------------
+    SPLIT_1 = .7
+    SPLIT_2 = .85
+    
     DATA_DIR = os.path.join(INPUT_DIR, AREA)
     TRAIN_DIR = os.path.join(DATA_DIR, 'train')
     VALIDATE_DIR = os.path.join(DATA_DIR, 'validate')
