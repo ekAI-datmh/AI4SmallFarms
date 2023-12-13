@@ -24,3 +24,11 @@ To cite the paper/benchmark dataset, please use this bib file:
   year={}
 }
 ```
+
+## Pipeline steps
+* Split dataset
+* Create patches
+* Create model
+* Train model
+* Evaluate model
+* Make predictions
