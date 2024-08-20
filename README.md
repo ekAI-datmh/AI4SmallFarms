@@ -20,8 +20,8 @@ To cite the paper/benchmark dataset, please use this bib file:
   journal={{IEEE GEOSCIENCE AND REMOTE SENSING LETTERS},
   volume={20}
   number={}
-  pages={}
-  year={}
+  pages={1-5}
+  year={2023}
 }
 ```
 
