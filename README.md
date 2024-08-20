@@ -61,7 +61,7 @@ WRITE_PREDICTIONS: Save the predictions as .tif files
 ```
 
 ## Pipeline steps
-When running the pipeline, the user should use comments to run the right steps. The following steps are 
+When running the pipeline, the user should comment out some lines of code to run the right steps. The following steps are 
 
 1. Split dataset: splits the data in the train, validate and test set. These splits are predetermined in input/tilesAsia.gpkg. The dataset in DANS is already split into these three parts, so when using the AI4SmallFarms dataset, this step can be skipped.
 2. Create patches: Because the original image tiles are too big and do not have a standard size, we need to create smaller image patches. It creates patches for the train, validate and test directory. 
