@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/data1tb/FieldBoundary/AI4SmallFarms/mlruns/497215886019014069/ab675aa49c48415f935b06ac595f25a4/artifacts
+end_time: 1732786576485
+entry_point_name: ''
+experiment_id: '497215886019014069'
+lifecycle_stage: active
+run_id: ab675aa49c48415f935b06ac595f25a4
+run_name: satellite_unet_asia_True_1_10_0001_20241128-163454
+run_uuid: ab675aa49c48415f935b06ac595f25a4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732786494724
+status: 3
+tags: []
+user_id: ekai2

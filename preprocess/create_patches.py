@@ -59,13 +59,21 @@ class CreatePatches(Base):
                         stride_y = int((self.image_size / div_factor))
 
                     if 'train' in root_folder or 'validate' in root_folder:
-                        # div_factor = 1
                         patches_x = math.ceil(img.width / self.image_size)
                         patches_y = math.ceil(img.height / self.image_size)
-                        patch_step_x_modulo = (self.image_size * patches_x) % img.width
-                        patch_step_y_modulo = (self.image_size * patches_y) % img.height
-                        stride_x = self.image_size - int(patch_step_x_modulo / (patches_x - 1))
-                        stride_y = self.image_size - int(patch_step_y_modulo / (patches_y - 1))
+                        
+                        # Check if we have more than one patch
+                        if patches_x > 1:
+                            patch_step_x_modulo = (self.image_size * patches_x) % img.width
+                            stride_x = self.image_size - int(patch_step_x_modulo / (patches_x - 1))
+                        else:
+                            stride_x = self.image_size  # No stride needed if only one patch
+
+                        if patches_y > 1:
+                            patch_step_y_modulo = (self.image_size * patches_y) % img.height
+                            stride_y = self.image_size - int(patch_step_y_modulo / (patches_y - 1))
+                        else:
+                            stride_y = self.image_size  # No stride needed if only one patch
 
                     for i in range(patches_x):
                         for n in range(patches_y):

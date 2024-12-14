@@ -20,9 +20,9 @@ class SelectedModel(StrEnum):
 
 class Base:
     # config------------------------------------------------------------------------------------------------------------
-    INPUT_DIR = r''
+    INPUT_DIR = r'input'
     AREA = Area.ASIA
-    SOURCE = Source.GOOGLE
+    SOURCE = Source.S2
     IMAGE_SIZE = 512
     NUM_CHANNELS = 3
 
@@ -31,13 +31,13 @@ class Base:
     BATCH_SIZE = 1
     LEARNING_RATE = 1e-4
     EPOCHS = 1000
-    PATIENCE = 10
+    PATIENCE = 10000
     BIN_THRESHOLD = .5
 
     BEST_NL_S2 = r'best/linux_s2_nl_from_scratch_True_8_120_26_10_001_20230509-101508.h5'
-    BEST_ASIA_S2 = r'best/linux_s2_asia_from_scratch_False_2_126_30_001_20230509-204249.h5'
-    BEST_ASIA_S2_SCRATCH = r'best/linux_s2_asia_from_scratch_True_8_31_7_10_001_20230509-135032.h5'
-    BEST_ASIA_GOOGLE = r'best/satellite_unet_google_asia_from_scratch_True_8_2535_539_10_001_20230520-074005.h5'
+    BEST_ASIA_S2 = r'best/satellite_unet_asia_from_scratch_True_4_63_15_50_0003_20241209-140548.h5'
+    BEST_ASIA_S2_SCRATCH = r'best/satellite_unet_asia_from_scratch_True_1_898_162_10000_0001_20241213-114332.h5'
+    BEST_ASIA_GOOGLE = r'best/satellite_unet_asia_from_scratch_True_1_85_19_10_0001_20241203-103706.h5'
 
     VISUALIZE_PREDICTIONS = False
     WRITE_PREDICTIONS = True

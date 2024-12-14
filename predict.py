@@ -134,7 +134,9 @@ class Predict(Base):
                             mosaic = base_img
                         else:
                             mosaic = np.dstack((mosaic, base_img))
+                            # mosaic = np.nanmin(mosaic, axis=2)
                             mosaic = np.nanmin(mosaic, axis=2)
+
                         count += 1
 
             with rasterio.open(os.path.join(self.mosaic_dir, key + '.tif'),

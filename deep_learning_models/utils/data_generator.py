@@ -5,6 +5,8 @@ import skimage.util
 import tensorflow as tf
 from base import *
 import osgeo
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 
 
 class DataGenerator(Base, tf.keras.utils.Sequence):
@@ -36,10 +38,13 @@ class DataGenerator(Base, tf.keras.utils.Sequence):
         batch_img_list = []
         batch_msk_list = []
 
+        #print(indices)
         for i, data_index in enumerate(indices):
+            
             img = np.array(skimage.io.imread(os.path.join(self.data_path, self.images_dir, self.image_list[data_index]),
                                              plugin='tifffile'))
             img_nor = np.zeros(img.shape, dtype=np.float32)
+            #print("Image: ", os.path.join(self.data_path, self.images_dir, self.image_list[data_index]))
             try:
                 for k in range(self.num_channels):
                     band_max = np.max(img[:, :, k])
@@ -47,14 +52,24 @@ class DataGenerator(Base, tf.keras.utils.Sequence):
                     img_nor[:, :, k] = (img[:, :, k] - band_min) / (band_max - band_min)
             except Exception as e:
                 print(e)
-
+            # plt.subplot(1,3,1)
+            # plt.imshow(img)
+            # plt.subplot(1,3,2)
+            # plt.imshow(img_nor)
             batch_img_list.append(img_nor)
+            # mask = np.array(skimage.io.imread(os.path.join(self.data_path, self.masks_dir, self.image_list[data_index].replace("image", "mask")),
+            #                                plugin='tifffile'))
+            # plt.subplot(1,3,3)
+            # plt.imshow(mask)
+            # plt.show()
             batch_msk_list.append(
-                np.array(skimage.io.imread(os.path.join(self.data_path, self.masks_dir, self.mask_list[data_index]),
+                np.array(skimage.io.imread(os.path.join(self.data_path, self.masks_dir, self.image_list[data_index].replace("image", "mask")),
                                            plugin='tifffile')))
+            #print("Mask name2: ", os.path.join(self.data_path, self.masks_dir, self.image_list[data_index].replace("image", "mask")))
 
         batch_img_list = np.array(batch_img_list)
-        batch_msk_list = (np.array(batch_msk_list).astype(np.uint8) / 255).astype(np.float32)
+        batch_msk_list = (np.array(batch_msk_list).astype(np.uint8)).astype(np.float32)
+        
 
         return batch_img_list, batch_msk_list
 

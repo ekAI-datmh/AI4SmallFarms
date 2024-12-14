@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/data1tb/FieldBoundary/AI4SmallFarms/mlruns/497215886019014069/ef96293237684e8db624ce14a84d007e/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '497215886019014069'
+lifecycle_stage: active
+run_id: ef96293237684e8db624ce14a84d007e
+run_name: satellite_unet_asia_True_8_10_0001_20241204-155943
+run_uuid: ef96293237684e8db624ce14a84d007e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733302783208
+status: 1
+tags: []
+user_id: nhatvm
